@@ -3,6 +3,9 @@ const express = require("express");
 const multer = require("multer");
 const dayjs = require("dayjs");
 const path = require("path");
+const cors = require('cors')
+
+
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -22,6 +25,7 @@ const upload = multer({ storage: storage });
 // const upload = multer({ dest: "uploads/" });
 
 const app = express();
+app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
